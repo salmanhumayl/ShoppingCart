@@ -1,0 +1,29 @@
+
+    <div class="card mb-4 shadow-sm">
+      <img class="bd-placeholder-img card-img-top" width="100%" [src]="productitem.imageUrl"/>
+
+
+      <div class="card-body">
+        <p class="card-text">
+          <strong>{{productitem.price | currency:"EUR"}}</strong>
+        </p>
+        <p class="card-text">
+            {{productitem.description}}
+        </p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <button
+            type="button"
+            class="btn btn-sm btn-primary product-btn"
+            (click)="handlerAddToCard()">Add to Cart
+            </button>
+            <a routerLinkActive = "active" class="list-group-item clearfix" [routerLink]="['/product/',index]" routerLinkActive="active">
+            View
+            </a>
+
+              <!-- <button type="button" class="btn btn-sm btn-outline-secondary product-btn">View Details</button> -->
+          </div>
+
+        </div>
+      </div>
+

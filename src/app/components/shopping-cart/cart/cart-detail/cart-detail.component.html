@@ -1,0 +1,47 @@
+<div>
+<div id="collapseExample" *ngIf="lEmptyCard">
+  <div class="card">
+    <div class="card-body">
+     <h1 style="color:chocolate">Items in your cart:<span style="margin-left: 5%;margin-right: 22%;color: greenyellow">
+        Total value is: {{allTotal}}</span>
+        <button class="btn btn-danger" routerLink='/checkout' >PROCEED TO CheckOut</button>
+       </h1>
+
+        <table class="table table-bordered table-responsive table-hover">
+          <thead class="thead-light">
+          <tr>
+            <th>Image</th>
+            <th>Name & Description</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Add/Remove</th>
+            <th>Total For Item</th>
+          </tr>
+          </thead>
+          <tr *ngFor="let prod of productAddedTocart;let q = index">
+            <td><img [src]="prod.imageUrl" width="250px;" height="270px;"/></td>
+            <td class="text-center">{{prod.name}}</td>
+            <td>{{prod.price}}</td>
+            <td>{{prod.qty}}</td>
+            <td>
+              <div class="form-inline">
+              <button type="button" (click)="onAddQuantity(prod)" class="btn btn-success">+</button>
+              <input type="text"  [ngModel] ="prod.qty" (ngModelChange) ="prod.qty=$event"class="form-control form-inline" >
+              <button type="button" (click)="onRemoveQuantity(prod)" class="btn btn-danger">-</button>
+              </div>
+            </td>
+            <td>{{prod.price * prod.qty}}</td>
+          </tr>
+        </table>
+    </div>
+  </div>
+
+</div>
+
+
+<div *ngIf="!lEmptyCard">
+
+
+  <p> <a routerLink='/home'>Contine Shopping</a> </p>
+</div>
+</div>

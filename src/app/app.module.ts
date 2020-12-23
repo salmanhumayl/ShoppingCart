@@ -24,6 +24,7 @@ import { AuthGuardService  } from './guard/auth-guard.service';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { HomeComponent } from './components/shared/home/home.component';
 
 const routes:Routes=[
   {path: 'home', component: ShoppingCartComponent},
@@ -32,6 +33,8 @@ const routes:Routes=[
   {path:'checkout',component:CheckoutComponent,canActivate:[AuthGuardService]},
   {path:'login',component:LoginComponent},
   {path:'logout',component:LogoutComponent},
+  {path: 'home/:id', component: ItemDetailComponent},
+  {path: 'register', component: RegistrationComponent},
 
   {path: '', redirectTo:'/home',pathMatch:'full'}
 
@@ -58,7 +61,8 @@ const routes:Routes=[
     LoginComponent,
     CheckoutComponent,
     LogoutComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

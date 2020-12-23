@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
+import {MessengerService} from 'src/app/services/messenger.service'
 import {Product} from 'src/app/models/product';
 
 @Component({
@@ -11,7 +12,8 @@ export class CartDetailComponent implements OnInit {
   allTotal=0;
   lEmptyCard:boolean=false;
 
-  constructor(private _itemService:ProductService) { }
+  constructor(private _itemService:ProductService,
+    private msg:MessengerService) { }
  // product:Product[];
   productAddedTocart:Product[];
   ngOnInit(): void {
@@ -48,6 +50,7 @@ export class CartDetailComponent implements OnInit {
     this._itemService.AddProductToCard(this.productAddedTocart);
     this.productAddedTocart=this._itemService.getProductFromCart();
     this.calculteAllTotal(this.productAddedTocart);
+    this.msg.sendMsg(this.productAddedTocart); //give refecne of localstorage
 
 
 }
@@ -60,5 +63,14 @@ onRemoveQuantity(product:Product)
   this._itemService.AddProductToCard(this.productAddedTocart);
   this.calculteAllTotal(this.productAddedTocart);
 
+}
+
+
+
+CalculateSubTotal(product:Product): Number {
+  let subTotal = 0;
+
+  subTotal =product.qty * product.price;
+  return subTotal;
 }
 }

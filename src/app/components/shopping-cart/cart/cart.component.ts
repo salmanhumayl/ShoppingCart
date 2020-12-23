@@ -25,9 +25,10 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
 
-    //alert("Cart component called");
+    alert("Cart component called");
      this.msg.getMsg().subscribe((product:Product)=>{
       this.addProductToCart(product);
+
       this.msg.updateCartCount(this.cartItems.length);
 
 

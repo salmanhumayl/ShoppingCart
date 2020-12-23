@@ -1,29 +1,27 @@
+<div class="card my-2">
+  <img [src]="productitem.imageUrl" alt="{{productitem.name}}" width="100px" class="card-img-top"   style="cursor:pointer;">
+  <div class="card-header">
+    <div class="card-title">
+      <p>{{productitem.name | titlecase}}</p>
+    </div>
+  </div>
+  <div class="card-body">
+    <h6>{{productitem.description.substr(0, 40)}} ....</h6>
+    <p class="lead">{{productitem.price | currency:'USD'}}</p>
+  </div>
 
-    <div class="card mb-4 shadow-sm">
-      <img class="bd-placeholder-img card-img-top" width="100%" [src]="productitem.imageUrl"/>
+  <div class="row d-flex justify-content-center border-primary my-3">
+    <div class="col-md-6 ">
+      <button class="btn btn-outline-primary btn-sm btn-block"
+        [class.disabled]="productitem.qty < 1"
+        [class.btn-outline-danger]="productitem.qty < 1"
+        (click)="handlerAddToCard()" [disabled]="productitem.qty < 1">
+        {{ productitem.qty < 1 ? "NO STOCK" : "Add To Cart"}}
+</button>
+<a routerLinkActive = "active" class="list-group-item clearfix" [routerLink]="[index]" routerLinkActive="active">
+  View
+  </a>
+    </div>
+  </div>
 
-
-      <div class="card-body">
-        <p class="card-text">
-          <strong>{{productitem.price | currency:"EUR"}}</strong>
-        </p>
-        <p class="card-text">
-            {{productitem.description}}
-        </p>
-        <div class="d-flex justify-content-between align-items-center">
-          <div class="btn-group">
-            <button
-            type="button"
-            class="btn btn-sm btn-primary product-btn"
-            (click)="handlerAddToCard()">Add to Cart
-            </button>
-            <a routerLinkActive = "active" class="list-group-item clearfix" [routerLink]="['/product/',index]" routerLinkActive="active">
-            View
-            </a>
-
-              <!-- <button type="button" class="btn btn-sm btn-outline-secondary product-btn">View Details</button> -->
-          </div>
-
-        </div>
-      </div>
-
+</div>

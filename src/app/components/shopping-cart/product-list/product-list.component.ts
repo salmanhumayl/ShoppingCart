@@ -20,7 +20,7 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
 
-    alert("Call product int");
+
     this.msg.isLoggedIn.subscribe(loginIn=> this.isLoggedIn=loginIn)
     this.ShowProducts();
 

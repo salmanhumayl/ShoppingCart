@@ -13,12 +13,14 @@ export class LoginComponent implements OnInit {
   returnUrl: string;
   currentUser: UserInfo[]=[];
 
-  constructor(private msg:MessengerService,public authService: AuthenticationService,private router:Router,
+  constructor(private msg:MessengerService,public authService: AuthenticationService,
+    private router:Router,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
 
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+   // alert(this.returnUrl);
    // alert(this.route.snapshot.queryParams['returnUrl'] || '/');
   //alert(this.returnUrl);
   }
@@ -42,6 +44,7 @@ export class LoginComponent implements OnInit {
 
       if (this.returnUrl!=null)
       {
+
         this.router.navigateByUrl(this.returnUrl);
       }
       else
@@ -54,5 +57,8 @@ export class LoginComponent implements OnInit {
 
   }
 
+  Register(){
 
+    this.router.navigate(['register']);
+  }
 }

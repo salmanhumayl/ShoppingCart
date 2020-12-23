@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {Router,ActivatedRoute } from '@angular/router';
 import {AuthenticationService} from '../../services/authentication.service';
 import { ProductService } from 'src/app/services/product.service';
+import {MessengerService} from 'src/app/services/messenger.service'
 import {Product} from 'src/app/models/product';
 import { UserInfo } from 'src/app/models/UserInfo';
 
@@ -15,12 +17,16 @@ export class CheckoutComponent implements OnInit {
   productAddedTocart:Product[];
   allTotal=0;
 
-  constructor(public authService: AuthenticationService,private _itemService:ProductService) { }
+  constructor(public authService: AuthenticationService,
+    private _itemService:ProductService,
+    private msg:MessengerService,
+    private router:Router) { }
 
   ngOnInit(): void {
 
     this.productAddedTocart=this._itemService.getProductFromCart();
     this.calculteAllTotal(this.productAddedTocart);
+
 
 
     this.GetLoggedinUserDetails();
@@ -48,6 +54,9 @@ export class CheckoutComponent implements OnInit {
   ConfirmOrder(){
 
     alert("Order has been placed succesfully.");
+   this._itemService.removeAllProductFromCart();
+
+    window.location.href="http://portal.ajes.ae/caroil";
   }
 
 }

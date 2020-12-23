@@ -95,8 +95,8 @@ export class ProductService {
     }
 
     getItemsById(id: number) {
-      alert("getItemsById");
-      alert(this.products[id].price);
+     // alert("getItemsById");
+     // alert(this.products[id].price);
       return this.products[id];
 
     }
@@ -135,5 +135,6 @@ export class ProductService {
 
       localStorage.removeItem("product");
     }
+
 
 }

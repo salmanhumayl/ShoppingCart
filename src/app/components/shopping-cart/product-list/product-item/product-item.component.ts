@@ -16,7 +16,7 @@ export class ProductItemComponent implements OnInit {
 
 
   cartTotal=0;
-  cartItemCount=0;
+
 
  constructor(private msg:MessengerService,private _itemService:ProductService) { }
 
@@ -62,9 +62,11 @@ export class ProductItemComponent implements OnInit {
       }
 
   }
-  this.cartItemCount=this.cartItems.length;
 
-  this.msg.updateCartCount(this.cartItemCount);
+  this.msg.updateCartCount(this.cartItems.length);
+
+  this.msg.sendMsg(this.cartItems); //give refecne of localstorage
+
 }
 
 

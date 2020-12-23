@@ -19,7 +19,7 @@ export class ItemDetailComponent implements OnInit {
     this.activeRoute.params.subscribe(
         (params:Params) =>{
             this.id=params.id;
-            alert("Paran" + this.id);
+           // alert("Paran" + this.id);
             this.inItems=this.itemServ.getItemsById(this.id);
 
         }

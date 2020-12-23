@@ -27,31 +27,35 @@ export class NavComponent implements OnInit {
     {
       if (this.auth.isAuthenticated())
       {
-     this.isLoggedIn=true;
+         this.isLoggedIn=true;
       }
 }
 
+     alert("nav")
 
-    this.msg.currentMessage.subscribe(MyCount => this.cartItemCount = MyCount);
 
-    if (this.cartItemCount==0)
-      {
-        this.productAddedTocart=this._itemService.getProductFromCart(); // in case user click f5 / refresh
-        this.cartItemCount=this.productAddedTocart.length;
-    }
 
-    //this.msg.currentCartCount.subscribe(MyCount => this.cartItemCount = MyCount);
-
-    //this.msg.getCartCount().subscribe((MyCount:number)=>{
-      //this.cartItemCount = MyCount;
-  //})
 
 
 
 }
 
-public UpdateCountHeader(count:number){
-  this.cartItemCount=count;
 
 }
-}
+
+
+
+
+
+
+//this.msg.currentMessage.subscribe(MyCount => this.cartItemCount = MyCount);
+//alert("nav")
+// this.msg.currentCartCount.subscribe(MyCount => this.cartItemCount = MyCount);
+
+// if (this.cartItemCount==0)
+  // {
+   //  this.productAddedTocart=this._itemService.getProductFromCart(); // in case user click f5 / refresh
+    // this.cartItemCount=this.productAddedTocart.length;
+ //}
+
+ //this.msg.currrentCartCount.subscribe(MyCount => this.cartItemCount = MyCount);

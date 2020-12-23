@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
 
       this.authService.StoreUserInfo(this.currentUser);
 
-      this.msg.isLoggedIn.next(true);
+      this.msg.isLoggedIn$.next(true);
 
 
       if (this.returnUrl!=null)

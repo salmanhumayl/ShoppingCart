@@ -9,8 +9,12 @@
         <li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
       </ul>
       <ul class="header-links pull-right">
-
-        <li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
+        <div *ngIf="!isLoggedIn">
+            <li><a routerLink='/login'><i class="fa fa-user-o"></i> Sign In</a></li>
+        </div>
+        <div *ngIf="isLoggedIn">
+          <li><a  routerLink='/logout'><i class="fa fa-user-o"></i> Log Out</a></li>
+      </div>
       </ul>
     </div>
   </div>
@@ -27,7 +31,9 @@
           <div class="header-logo">
             <a routerLink="/" class="logo">
               <img src="assets/img/logo.png" alt="">
+
             </a>
+
           </div>
         </div>
         <!-- /LOGO -->
@@ -76,7 +82,7 @@
                     </div>
                     <div class="product-body">
                       <h3 class="product-name"><a href="#">{{c.name}}</a></h3>
-                      <h4 class="product-price"><span class="qty">{{c.qty}} x </span>{{c.price | currency:'Rs'}}</h4>
+                      <h4 class="product-price"><span class="qty">{{c.qty}} x </span>{{c.price | currency:'AED'}}</h4>
                     </div>
                     <button class="delete" ><i class="fa fa-close"></i></button>
                   </div>
@@ -85,7 +91,7 @@
                 </div>
                 <div class="cart-summary">
                   <small></small>
-                  <h5>TOTAL : {{allTotal | currency:'Rs'}}</h5>
+                  <h5>TOTAL : {{allTotal | currency:'AED'}}</h5>
                 </div>
                 <div class="cart-btns">
                   <a routerLink="/mycartDetail">View Cart</a>

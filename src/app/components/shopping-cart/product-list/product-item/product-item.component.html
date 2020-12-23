@@ -1,5 +1,7 @@
 <div class="card my-2">
-  <img [src]="productitem.imageUrl" alt="{{productitem.name}}" width="100px" class="card-img-top"   style="cursor:pointer;">
+  <a [routerLink]="[index]" routerLinkActive="active">
+       <img [src]="productitem.imageUrl" alt="{{productitem.name}}" width="100px" class="card-img-top"   style="cursor:pointer;">
+       </a>
   <div class="card-header">
     <div class="card-title">
       <p>{{productitem.name | titlecase}}</p>
@@ -7,7 +9,7 @@
   </div>
   <div class="card-body">
     <h6>{{productitem.description.substr(0, 40)}} ....</h6>
-    <p class="lead">{{productitem.price | currency:'USD'}}</p>
+    <p class="lead">{{productitem.price | currency:'AED'}}</p>
   </div>
 
   <div class="row d-flex justify-content-center border-primary my-3">
@@ -18,9 +20,7 @@
         (click)="handlerAddToCard()" [disabled]="productitem.qty < 1">
         {{ productitem.qty < 1 ? "NO STOCK" : "Add To Cart"}}
 </button>
-<a routerLinkActive = "active" class="list-group-item clearfix" [routerLink]="[index]" routerLinkActive="active">
-  View
-  </a>
+
     </div>
   </div>
 

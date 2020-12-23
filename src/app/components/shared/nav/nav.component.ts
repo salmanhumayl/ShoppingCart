@@ -21,7 +21,7 @@ export class NavComponent implements OnInit {
     public auth: AuthenticationService) { }
 
   ngOnInit(): void {
-    this.msg.isLoggedIn.subscribe(loginIn=> this.isLoggedIn=loginIn)
+    this.msg.isLoggedIn$.subscribe(loginIn=> this.isLoggedIn=loginIn)
 
     if (!this.isLoggedIn)
     {

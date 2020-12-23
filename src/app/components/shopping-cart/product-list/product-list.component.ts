@@ -19,9 +19,10 @@ export class ProductListComponent implements OnInit {
    constructor(private msg:MessengerService,private productService:ProductService) { }
 
   ngOnInit(): void {
+   // alert("productlist");
 
 
-    this.msg.isLoggedIn.subscribe(loginIn=> this.isLoggedIn=loginIn)
+
     this.ShowProducts();
 
   }

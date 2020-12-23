@@ -15,7 +15,7 @@ export class MessengerService {
 
   private productmessage=new Subject();
 
-  isLoggedIn=new BehaviorSubject(false);
+  isLoggedIn$=new BehaviorSubject(false);
   strFilterProduct=new BehaviorSubject("");
 
   currentCartCount = new BehaviorSubject(0);

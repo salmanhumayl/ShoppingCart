@@ -12,6 +12,7 @@ export class ItemDetailComponent implements OnInit {
   inItems:Product;
   id:number;
   today: number = Date.now();
+
   constructor(private activeRoute:ActivatedRoute,private  itemServ:ProductService) { }
 
   ngOnInit(): void {
@@ -37,6 +38,7 @@ export class ItemDetailComponent implements OnInit {
 
   onSubmitReview(form: NgForm) {
     const newreview = form.value.review;
+
     this.itemServ.addReview(this.id, newreview);
     form.reset();
   }

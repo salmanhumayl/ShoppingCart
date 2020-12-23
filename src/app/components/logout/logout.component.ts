@@ -17,7 +17,7 @@ export class LogoutComponent implements OnInit {
     this.auth.removeRole();
     this.auth.removeToken();
     this._itemService.removeAllProductFromCart();
-    this.msg.isLoggedIn.next(false);
+    this.msg.isLoggedIn$.next(false);
     this.msg.updateCartCount(0);
     this.router.navigate(['/home']);
 

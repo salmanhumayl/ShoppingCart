@@ -39,6 +39,8 @@
               <br>
               <form (ngSubmit)="onSubmitRate(f)" #f="ngForm">
 
+
+
                   <label class="radio-inline">1
                       <input type="radio" name="rate" class="form-control" ngModel  id="rad" value="1" required>
 
@@ -51,7 +53,8 @@
 
                   </label>
                   <label class="radio-inline">4
-                      <input type="radio" name="rate" class="form-control" ngModel id="rad" value="4">
+                      <input type="radio" name="rate" class="form-control"
+                       id="rad" value="4">
                   </label>
                   <label class="radio-inline">5
                       <input type="radio" name="rate" class="form-control" ngModel id="rad" value="5">
@@ -91,6 +94,10 @@
               <br>
               <Label for="reviewComment"><b>Leave a review below!</b></Label>
               <form  (ngSubmit)="onSubmitReview(e)" #e="ngForm"  >
+
+
+
+
 
                   <textarea name="review" id="reviewComment" cols="40" rows="5" ngModel required></textarea>
                   <br>

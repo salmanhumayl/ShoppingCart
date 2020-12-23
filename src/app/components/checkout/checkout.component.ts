@@ -52,11 +52,19 @@ export class CheckoutComponent implements OnInit {
   }
 
   ConfirmOrder(){
-
+     // insert record with flag
+    // send to payment gateway if response true then show below message and update flag in order table ....
     alert("Order has been placed succesfully.");
    this._itemService.removeAllProductFromCart();
-
     window.location.href="http://portal.ajes.ae/caroil";
+
+
+    //this.router.navigate(['path/to'])
+  //.then(() => {
+    //window.location.reload();
+  //});
+
+
   }
 
 }

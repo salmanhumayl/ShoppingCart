@@ -25,7 +25,7 @@
             </td>
             <td><p>{{c.name}}</p></td>
             <td>
-              <p>{{c.price | currency:'Rs'}}</p>
+              <p>{{c.price | currency:'AED'}}</p>
             </td>
             <td>
 
@@ -40,7 +40,7 @@
                 </div>
             </td>
             <td>
-              <p>{{CalculateSubTotal(c) | currency:'Rs'}}</p>
+              <p>{{CalculateSubTotal(c) | currency:'AED'}}</p>
             </td>
           </tr>
           <tr class="border-0">
@@ -48,7 +48,7 @@
             <td></td>
             <td></td>
             <td>TOTAL</td>
-            <td>{{allTotal | currency:'Rs'}}</td>
+            <td>{{allTotal | currency:'AED'}}</td>
 
           </tr>
 
@@ -62,6 +62,7 @@
         <div class="d-flex w-100 justify-content-between flex-sm-column flex-md-row">
           <a routerLink="/checkout" class="btn btn-danger btn-sm order-1">Checkout</a>
           <a routerLink="/" class="btn btn-success btn-sm order-0">Continue Shopping</a>
+
         </div>
       </div>
 

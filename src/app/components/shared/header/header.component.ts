@@ -3,6 +3,7 @@ import {MessengerService} from 'src/app/services/messenger.service'
 import { ProductService } from 'src/app/services/product.service';
 import {AuthenticationService} from '../../../services/authentication.service';
 import {Product} from 'src/app/models/product';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -21,18 +22,20 @@ export class HeaderComponent implements OnInit {
   lEmptyCard:boolean=false;
 
   constructor(private msg:MessengerService,private _itemService:ProductService,
-    public auth: AuthenticationService) { }
+    public auth: AuthenticationService,
+    private router:Router) { }
 
   ngOnInit(): void {
-
+   // alert("header");
     this.productAddedTocart=this._itemService.getProductFromCart(); // in case user click f5 / refresh
     if (this.productAddedTocart!=null){
-      this.msg.updateCartCount(this.productAddedTocart.length);
+    this.msg.updateCartCount(this.productAddedTocart.length);
 
     }
 
     this.msg.getCartCount().subscribe((MyCount:number)=>{
            this.cartItemCount = MyCount;
+           //alert("getCartCount");
         })
 
         this.msg.getMsg().subscribe((product:Product[])=>{
@@ -42,6 +45,16 @@ export class HeaderComponent implements OnInit {
         })
 
         this.msg.cartTotal$.subscribe(data => this.allTotal= data);
+
+        this.msg.isLoggedIn$.subscribe(data => this.isLoggedIn= data);
+        if (!this.isLoggedIn)
+    {
+      if (this.auth.isAuthenticated())
+      {
+         this.isLoggedIn=true;
+      }
+}
+
 
   }
 

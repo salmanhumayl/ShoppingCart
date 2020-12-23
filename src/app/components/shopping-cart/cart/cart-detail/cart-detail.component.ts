@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 import {MessengerService} from 'src/app/services/messenger.service'
 import {Product} from 'src/app/models/product';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart-detail',
@@ -13,7 +14,8 @@ export class CartDetailComponent implements OnInit {
   lEmptyCard:boolean=false;
 
   constructor(private _itemService:ProductService,
-    private msg:MessengerService) { }
+    private msg:MessengerService,
+    private router:Router) { }
  // product:Product[];
   productAddedTocart:Product[];
   ngOnInit(): void {
@@ -73,4 +75,7 @@ CalculateSubTotal(product:Product): Number {
   subTotal =product.qty * product.price;
   return subTotal;
 }
+
+
+
 }
